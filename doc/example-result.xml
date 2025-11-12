@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+<results>
+<lasterror></lasterror>
+<entries>
+<address>
+    <name0>Ma</name0>
+    <profession0>Metallhandel</profession0>
+    <street>Lange Enden</street>
+    <housenumber>29</housenumber>
+    <zipcode>13437</zipcode>
+    <city>Berlin</city>
+    <areacode>01525</areacode>
+    <phonenumber>3105262</phonenumber>
+    <commercial>true</commercial>
+    <webadress>false</webadress>
+    <advertising>false</advertising>
+    <recordtype>single</recordtype>
+    <branches/>
+    <row>0</row>
+</address>
+<address>
+    <name0>Taxi MÃ¼nchen eG</name0>
+    <street>Engelhardstr.</street>
+    <housenumber>6</housenumber>
+    <zipcode>81369</zipcode>
+    <city>MÃ¼nchen</city>
+    <areacode>089</areacode>
+    <phonenumber>21610</phonenumber>
+    <email>info@tmeg.de</email>
+    <homepage>www.taxi-muenchen.de</homepage>
+    <commercial>true</commercial>
+    <webadress>false</webadress>
+    <advertising>true</advertising>
+    <recordtype>parent</recordtype>
+    <branches/>
+    <row>217328</row>
+    <selected>true</selected>
+    <address>
+        <name0>STADTMITTE Stachus (Kaufhof)</name0>
+        <street>Sonnenstr.</street>
+        <zipcode>80331</zipcode>
+        <city>MÃ¼nchen</city>
+        <areacode>089</areacode>
+        <phonenumber>51554999</phonenumber>
+        <commercial>true</commercial>
+        <webadress>false</webadress>
+        <advertising>true</advertising>
+        <recordtype>child</recordtype>
+        <branches/>
+    </address>
+    <address>
+        <name0>STADTMITTE Stachus (Kaufhof)</name0>
+        <street>Sonnenstr.</street>
+        <zipcode>80331</zipcode>
+        <city>MÃ¼nchen</city>
+        <areacode>089</areacode>
+        <phonenumber>2161334</phonenumber>
+        <commercial>true</commercial>
+        <webadress>false</webadress>
+        <advertising>true</advertising>
+        <recordtype>child</recordtype>
+        <branches/>
+    </address></address>
+</entries>
+<hitcount>217528</hitcount>
+</results>
+</root>

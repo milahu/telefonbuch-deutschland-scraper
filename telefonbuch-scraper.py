@@ -301,7 +301,7 @@ async def main_inner(session):
     # to enable checking foreign keys:
     # conn.execute("PRAGMA foreign_keys = ON;")
     sql = (
-        "CREATE TABLE IF NOT EXISTS telefonbuch (\n"
+        "CREATE TABLE IF NOT EXISTS telefonbuch_scrape (\n"
         "  id INTEGER PRIMARY KEY,\n"
         "  parent_id INTEGER,\n"
         "  query_name TEXT,\n"
@@ -311,14 +311,14 @@ async def main_inner(session):
         ",\n".join(map(lambda k: f"  {k} TEXT", telefonbuch_columns.keys()))
         +
         ",\n"
-        "  FOREIGN KEY (parent_id) REFERENCES telefonbuch (id)\n"
+        "  FOREIGN KEY (parent_id) REFERENCES telefonbuch_scrape (id)\n"
         ")"
     )
     db_cur.execute(sql)
 
     if 1:
         sql = (
-            "CREATE UNIQUE INDEX IF NOT EXISTS telefonbuch_query_name_query_offset ON telefonbuch (\n"
+            "CREATE UNIQUE INDEX IF NOT EXISTS telefonbuch_scrape_query_name_query_offset ON telefonbuch_scrape (\n"
             "  query_name,\n"
             "  query_offset,\n"
             "  query_child_num\n"
@@ -596,7 +596,7 @@ async def main_inner(session):
     ]
 
     sql_insert_result = (
-        "INSERT INTO telefonbuch (\n"
+        "INSERT INTO telefonbuch_scrape (\n"
         +
         ",\n".join(insert_columns)
         +
@@ -623,7 +623,7 @@ async def main_inner(session):
 
         # check if this query_name was already processed
         # assume atomic inserts per query_name (transaction start + transaction end)
-        sql = "SELECT 1 FROM telefonbuch WHERE query_name = ?"
+        sql = "SELECT 1 FROM telefonbuch_scrape WHERE query_name = ?"
         args = (query_name,)
         res = db_cur.execute(sql, args).fetchone()
         if not res is None:
@@ -725,7 +725,7 @@ async def main_inner(session):
 
                 # predict next inserted rowid
                 # NOTE this is why: db_con.execute("BEGIN EXCLUSIVE")
-                next_id = db_cur.execute("SELECT COALESCE(MAX(id), 0) FROM telefonbuch").fetchone()[0] + 1
+                next_id = db_cur.execute("SELECT COALESCE(MAX(id), 0) FROM telefonbuch_scrape").fetchone()[0] + 1
                 next_id_counter = NextIdCounter(next_id)
 
                 # print(xml_bytes); sys.exit()

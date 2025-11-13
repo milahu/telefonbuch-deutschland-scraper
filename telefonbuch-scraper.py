@@ -283,7 +283,7 @@ async def main_inner(session):
 
     start_server()
 
-    db_path = "telefonbuch.db"
+    db_path = "telefonbuch-scrape.db"
     db_con = sqlite3.connect(db_path)
     db_cur = db_con.cursor()
 

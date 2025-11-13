@@ -318,7 +318,7 @@ def convert_sqlite_to_csv(source_db, source_table, output_csv):
     with open(output_csv, "w", newline="", encoding="utf-8") as outf:
         writer = csv.writer(outf, delimiter=";", quoting=csv.QUOTE_MINIMAL)
         # header: type + payload cols
-        writer.writerow(["type"] + payload_cols)
+        writer.writerow(["recordtype_int"] + payload_cols)
 
         with tqdm(total=total_out_rows, unit="rows", ncols=80, desc="Stage 6 - write CSV") as pbar:
             # parents in lexicographic order of payload
@@ -589,7 +589,7 @@ def convert_sqlite_to_csv(source_db, source_table, output_csv, keep_temp_db=True
 
     with open(output_csv, "w", newline="", encoding="utf-8") as outf:
         writer = csv.writer(outf, delimiter=";", quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(["type"] + payload_cols)
+        writer.writerow(["recordtype_int"] + payload_cols)
 
         with tqdm(total=total_out_rows, unit="rows", ncols=80, desc="Stage 7 - write CSV") as pbar:
             # Parent & single rows mixed, sorted by payload_csv
